@@ -3,9 +3,13 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* 使用 CSS 变量支持换肤 */
+  --primary-color: #1890ff;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f0f2f5;
+  --text-primary: #262626;
+  --text-secondary: #595959;
+  --border-color: #d9d9d9;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,11 +19,12 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--primary-color);
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--primary-color);
+  opacity: 0.8;
 }
 
 body {
@@ -27,6 +32,8 @@ body {
   padding: 0;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
 }
 
 h1 {
@@ -41,27 +48,29 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: var(--primary-color);
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* 暗色模式样式 */
+.dark {
+  --bg-primary: #141414;
+  --bg-secondary: #0f0f0f;
+  --text-primary: #ffffff;
+  --text-secondary: #bfbfbf;
+  --border-color: #333333;
+}
+
+.dark body {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
 }

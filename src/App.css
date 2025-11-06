@@ -1,42 +1,64 @@
+/* 根元素样式 */
 #root {
   width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* 布局样式 */
+.app-container {
+  width: 100vw;
   height: 100vh;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
-.logo {
-  height: 100%;
-  padding: 20px;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* 标签栏样式 */
+.custom-tab-bar {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  overflow-x: auto;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.custom-tab {
+  padding: 5px 15px;
+  border-radius: 4px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  cursor: pointer;
+  white-space: nowrap;
+  position: relative;
+  transition: all 0.3s;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.custom-tab.active {
+  border-color: var(--primary-color);
+  background-color: var(--bg-primary-hover);
+  color: var(--primary-color);
 }
 
-.card {
-  padding: 2em;
+.custom-tab:hover {
+  border-color: var(--primary-color-light);
+  background-color: var(--bg-hover);
 }
 
-.read-the-docs {
-  color: #888;
+.custom-tab-close {
+  margin-left: 5px;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.custom-tab-close:hover {
+  color: var(--error-color);
 }

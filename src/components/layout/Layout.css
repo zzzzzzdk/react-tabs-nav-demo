@@ -1,12 +1,27 @@
+/* 布局样式 */
 .app-layout {
   min-height: 100vh;
 }
 
+/* 暗色模式样式已移至index.css中通过CSS变量控制 */
+/* 这里保留特定组件的暗色模式覆盖样式 */
+.dark .app-menu {
+  background: var(--bg-primary);
+}
+
+.dark .custom-tab:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dark .custom-tab.active {
+  background: var(--bg-primary);
+}
+
 .app-header {
-  background: #fff;
+  background: var(--bg-primary);
   height: 64px;
   padding: 0 20px;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid var(--border-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -25,12 +40,12 @@
 .logo {
   font-size: 20px;
   font-weight: bold;
-  color: #1890ff;
+  color: var(--primary-color);
 }
 
 .app-sider {
-  background: #fff;
-  border-right: 1px solid #f0f0f0;
+  background: var(--bg-primary);
+  border-right: 1px solid var(--border-color);
   transition: width 0.3s;
 }
 
@@ -49,7 +64,7 @@
 }
 
 .app-content {
-  background: #f0f2f5;
+  background: var(--bg-secondary);
   min-height: calc(100vh - 64px);
   display: flex;
   flex-direction: column;
@@ -68,13 +83,47 @@
 /* 布局切换按钮样式 */
 .layout-toggle-btn {
   font-size: 16px;
-  color: #1890ff;
+  color: var(--ant-color-primary);
   transition: all 0.3s;
 }
 
 .layout-toggle-btn:hover {
-  background: #e6f7ff;
-  color: #40a9ff;
+  background: var(--ant-color-primary-outline);
+  color: var(--ant-color-primary-hover);
+}
+
+/* 头部操作按钮样式 */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.theme-toggle-btn,
+.color-palette-btn {
+  font-size: 16px;
+  color: var(--ant-color-primary);
+  transition: all 0.3s;
+}
+
+.theme-toggle-btn:hover,
+.color-palette-btn:hover {
+  background: var(--ant-color-primary-outline);
+  color: var(--ant-color-primary-hover);
+}
+
+/* 暗色模式下的按钮样式 */
+.dark .layout-toggle-btn,
+.dark .theme-toggle-btn,
+.dark .color-palette-btn {
+  color: var(--text-primary);
+}
+
+.dark .layout-toggle-btn:hover,
+.dark .theme-toggle-btn:hover,
+.dark .color-palette-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
 }
 
 .app-tabs {
@@ -84,8 +133,8 @@
 }
 
 .custom-tab-bar {
-  background: #fff;
-  border-bottom: 1px solid #f0f0f0;
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
   padding: 0 16px;
   height: 48px;
   display: flex;
@@ -98,8 +147,8 @@
 
 /* 顶部布局下的标签栏 */
 .top-layout .custom-tab-bar {
-  border-top: 1px solid #f0f0f0;
-  border-bottom: 1px solid #f0f0f0;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .tab-list {
@@ -120,30 +169,33 @@
   border-radius: 4px 4px 0 0;
   cursor: pointer;
   position: relative;
-  background: #f0f2f5;
-  border: 1px solid #d9d9d9;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
   border-bottom: none;
   margin-bottom: -1px;
   transition: all 0.3s;
+  color: var(--text-primary);
 }
 
 .custom-tab:hover {
-  background: #e6f7ff;
+  background: var(--bg-primary);
+  border-color: var(--primary-color);
 }
 
 .custom-tab.active {
-  background: #fff;
-  border-color: #1890ff;
-  color: #1890ff;
+  background: var(--bg-primary);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
   font-weight: 500;
 }
 
 .custom-tab.pinned {
-  background: #f6ffed;
+  background: var(--bg-primary);
+  opacity: 0.9;
 }
 
 .custom-tab.pinned.active {
-  background: #fff;
+  background: var(--bg-primary);
   border-color: #52c41a;
   color: #52c41a;
 }
@@ -204,4 +256,61 @@
   .app-menu.top-menu {
     margin: 0 8px;
   }
+  
+  .header-actions {
+    gap: 4px;
+  }
+}
+
+/* 颜色选择器样式 */
+.color-dropdown {
+  padding: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.color-item {
+  height: 40px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  transition: all 0.2s;
+  border: 2px solid transparent;
+}
+
+.color-item:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.color-item.selected {
+  border-color: #fff;
+  box-shadow: 0 0 0 2px var(--ant-color-primary);
+}
+
+.color-label {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* 主题设置面板样式 */
+.theme-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.setting-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.setting-label {
+  font-weight: 500;
+  color: var(--text-primary);
 }
