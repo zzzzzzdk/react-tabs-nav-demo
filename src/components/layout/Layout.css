@@ -1,0 +1,207 @@
+.app-layout {
+  min-height: 100vh;
+}
+
+.app-header {
+  background: #fff;
+  height: 64px;
+  padding: 0 20px;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 100;
+}
+
+/* 顶部导航头部特殊样式 */
+.app-header.top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1890ff;
+}
+
+.app-sider {
+  background: #fff;
+  border-right: 1px solid #f0f0f0;
+  transition: width 0.3s;
+}
+
+.app-menu {
+  padding: 16px 0;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* 顶部导航菜单样式 */
+.app-menu.top-menu {
+  flex: 1;
+  margin: 0 24px;
+  padding: 0;
+  height: auto;
+}
+
+.app-content {
+  background: #f0f2f5;
+  min-height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* 顶部布局特殊样式 */
+.top-layout .app-content {
+  min-height: calc(100vh - 64px);
+}
+
+/* 侧边布局特殊样式 */
+.side-layout .app-content {
+  min-height: calc(100vh - 64px);
+}
+
+/* 布局切换按钮样式 */
+.layout-toggle-btn {
+  font-size: 16px;
+  color: #1890ff;
+  transition: all 0.3s;
+}
+
+.layout-toggle-btn:hover {
+  background: #e6f7ff;
+  color: #40a9ff;
+}
+
+.app-tabs {
+  height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-tab-bar {
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 0 16px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* 顶部布局下的标签栏 */
+.top-layout .custom-tab-bar {
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.tab-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tab-list::-webkit-scrollbar {
+  display: none;
+}
+
+.custom-tab {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  height: 32px;
+  border-radius: 4px 4px 0 0;
+  cursor: pointer;
+  position: relative;
+  background: #f0f2f5;
+  border: 1px solid #d9d9d9;
+  border-bottom: none;
+  margin-bottom: -1px;
+  transition: all 0.3s;
+}
+
+.custom-tab:hover {
+  background: #e6f7ff;
+}
+
+.custom-tab.active {
+  background: #fff;
+  border-color: #1890ff;
+  color: #1890ff;
+  font-weight: 500;
+}
+
+.custom-tab.pinned {
+  background: #f6ffed;
+}
+
+.custom-tab.pinned.active {
+  background: #fff;
+  border-color: #52c41a;
+  color: #52c41a;
+}
+
+.tab-close-btn {
+  margin-left: 8px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  min-width: 0;
+}
+
+.pin-icon {
+  margin-left: 8px;
+  color: #52c41a;
+  font-size: 12px;
+}
+
+/* 标签内容区域 */
+.tab-content {
+  padding: 24px;
+  flex: 1;
+  overflow: auto;
+}
+
+/* 滚动条样式 */
+.custom-tab-bar::-webkit-scrollbar {
+  height: 4px;
+}
+
+.custom-tab-bar::-webkit-scrollbar-thumb {
+  background: #d9d9d9;
+  border-radius: 2px;
+}
+
+.custom-tab-bar::-webkit-scrollbar-thumb:hover {
+  background: #bfbfbf;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .app-sider {
+    display: none;
+  }
+  
+  .app-content {
+    margin-left: 0;
+  }
+  
+  .custom-tab {
+    padding: 0 12px;
+  }
+  
+  .app-header.top-header {
+    padding: 0 16px;
+  }
+  
+  .app-menu.top-menu {
+    margin: 0 8px;
+  }
+}
