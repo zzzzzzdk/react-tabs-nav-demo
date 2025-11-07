@@ -4,6 +4,7 @@ import HomePage from '../pages/HomePage'
 import DashboardPage from '../pages/DashboardPage'
 import UserManagementPage from '../pages/UserManagementPage'
 import SettingsPage from '../pages/SettingsPage'
+import DataTablePage from '../pages/DataTablePage'
 import NotFoundPage from '../pages/NotFoundPage'
 
 // 创建路由器
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
       {
         path: 'settings',
         element: <SettingsPage />
+      },
+      {
+        path: 'data-table',
+        element: <DataTablePage />
       }
     ]
   },

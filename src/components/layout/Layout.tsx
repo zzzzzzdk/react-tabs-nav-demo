@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { Layout as AntLayout, Menu, Button, Dropdown, Modal, ConfigProvider } from 'antd'
-import { 
+import {
   HomeOutlined, 
   DashboardOutlined, 
   UserOutlined, 
@@ -13,7 +13,8 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   MoonOutlined,
-  SunOutlined
+  SunOutlined,
+  TableOutlined
 } from '@ant-design/icons'
 import type { MenuProps } from 'antd'
 import {
@@ -51,6 +52,11 @@ const menuItems: MenuProps['items'] = [
     key: '/users',
     icon: <UserOutlined />,
     label: '用户管理'
+  },
+  {
+    key: '/data-table',
+    icon: <TableOutlined />,
+    label: '数据表格'
   },
   {
     key: '/settings',
